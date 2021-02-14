@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButtonDown("MoveHorizontal"))
         {
-            transform.Translate(Vector3.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
+            transform.Translate(-Vector3.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
         }
 
     }
