@@ -5,9 +5,9 @@ using UnityEngine;
 public class GenerateWorld : MonoBehaviour
 {
 
-    public GameObject[] platforms;
+    //public GameObject[] platforms;
     [SerializeField]
-    int iter = 20;
+    int iterations = 20;
     [SerializeField]
     float forwardOffset = 10f;
     [SerializeField]
@@ -19,25 +19,29 @@ public class GenerateWorld : MonoBehaviour
     void Start()
     {
         GameObject dummyTraveller = new GameObject("Dummy");
-        for (int i = 0; i < iter; i++)
+        for (int i = 0; i < iterations; i++)
         {
-            platformNum = Random.Range(0, platforms.Length);
+            GameObject platform = Pool.singleton.GetRandom();
+
+            if (platform == null) return;
+
+            platform.SetActive(true);
+            platform.transform.position = dummyTraveller.transform.position;
+            platform.transform.rotation = dummyTraveller.transform.rotation;
 
 
-            GameObject platform = Instantiate(platforms[platformNum], dummyTraveller.transform.position, dummyTraveller.transform.rotation);
-
-            if (platforms[platformNum].gameObject.CompareTag("StairsUp"))
+            if (platform.CompareTag("StairsUp"))
             {
                 dummyTraveller.transform.Translate(0f, stairsOffset, 0f);
             }
-            else if (platforms[platformNum].gameObject.CompareTag("StairsDown"))
+            else if (platform.CompareTag("StairsDown"))
             {
                 dummyTraveller.transform.Translate(0f, -stairsOffset, 0f);
 
                 platform.transform.Rotate(Vector3.up, 180f);
                 platform.transform.position = dummyTraveller.transform.position;
             }
-            else if (platforms[platformNum].gameObject.CompareTag("PlatformTSection"))
+            else if (platform.CompareTag("PlatformTSection"))
             {
                 if ((int)Random.Range(0f, 2f) == 0)
                     dummyTraveller.transform.Rotate(Vector3.up, 90f);

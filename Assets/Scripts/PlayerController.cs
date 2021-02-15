@@ -31,16 +31,15 @@ public class PlayerController : MonoBehaviour
             anim.SetLayerWeight(1, 1.0f);
         }
 
-        if(Input.GetButtonDown("Horizontal"))
+        if (Input.GetButtonDown("Horizontal"))
         {
-            transform.Rotate(Vector3.up* rotAngle * Mathf.Sign(Input.GetAxisRaw("Horizontal")));
+            transform.Rotate(Vector3.up * rotAngle * Mathf.Sign(Input.GetAxisRaw("Horizontal")));
         }
 
-        if(Input.GetButtonDown("MoveHorizontal"))
+        if (Input.GetButtonDown("MoveHorizontal"))
         {
             transform.Translate(-Vector3.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
         }
-
     }
     public void StopJumping()
     {
