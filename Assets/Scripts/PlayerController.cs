@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour
 
     Animator anim;
 
+    public static GameObject player;
+    public static GameObject currentPlatform;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        player = this.gameObject;
     }
 
     // Update is called once per frame
@@ -38,8 +41,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("MoveHorizontal"))
         {
-            transform.Translate(-Vector3.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
+            transform.Translate(transform.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        currentPlatform = other.gameObject;
     }
     public void StopJumping()
     {
