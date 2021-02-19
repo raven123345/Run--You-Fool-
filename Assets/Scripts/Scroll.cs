@@ -7,8 +7,7 @@ public class Scroll : MonoBehaviour
 
     [SerializeField]
     float scrollSpeed = 0.1f;
-    [SerializeField]
-    float ZScroll = 0.06f;
+    float ZScroll;
     private void FixedUpdate()
     {
         this.transform.position += PlayerController.player.transform.forward * -scrollSpeed;
@@ -20,11 +19,11 @@ public class Scroll : MonoBehaviour
 
         if (PlayerController.currentPlatform.CompareTag("StairsUp"))
         {
-            transform.Translate(Vector3.up * -ZScroll);
+            transform.Translate(Vector3.up * -(scrollSpeed * 0.6f));
         }
         else if (PlayerController.currentPlatform.CompareTag("StairsDown"))
         {
-            transform.Translate(Vector3.up * ZScroll);
+            transform.Translate(Vector3.up * (scrollSpeed * 0.6f));
         }
     }
 }

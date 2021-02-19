@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     float moveAmount = 1f;
 
     Animator anim;
+    bool canTurn = false;
 
     public static GameObject player;
     public static GameObject currentPlatform;
@@ -35,11 +36,16 @@ public class PlayerController : MonoBehaviour
             anim.SetLayerWeight(1, 1.0f);
         }
 
-        if (Input.GetButtonDown("Horizontal"))
+        //Завъртане
+        if (Input.GetButtonDown("Horizontal") && canTurn)
         {
             transform.Rotate(Vector3.up * rotAngle * Mathf.Sign(Input.GetAxisRaw("Horizontal")));
+            GenerateWorld.dummyTraveller.transform.forward = -this.transform.forward;
+            GenerateWorld.RunDummy();
+            canTurn = false;
         }
 
+        //Отместване
         if (Input.GetButtonDown("MoveHorizontal"))
         {
             transform.Translate(transform.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
@@ -48,7 +54,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GenerateWorld.RunDummy();
+        if (other is BoxCollider && !GenerateWorld.lastPlatform.CompareTag("PlatformTSection"))
+            GenerateWorld.RunDummy();
+
+        if (other is SphereCollider)
+        {
+            canTurn = true;
+        }
     }
 
     private void OnCollisionEnter(Collision other)

@@ -29,14 +29,15 @@ public class GenerateWorld : MonoBehaviour
     {
         GameObject p = Pool.singleton.GetRandom();
 
-
-
         if (p == null)
         { return; }
 
         if (lastPlatform != null)
         {
-            dummyTraveller.transform.position = lastPlatform.transform.position + PlayerController.player.transform.forward * 10f;
+            if (lastPlatform.CompareTag("PlatformTSection"))
+                dummyTraveller.transform.position = lastPlatform.transform.position + PlayerController.player.transform.forward * 20f;
+            else
+                dummyTraveller.transform.position = lastPlatform.transform.position + PlayerController.player.transform.forward * 10f;
 
             if (lastPlatform.CompareTag("StairsUp"))
             {

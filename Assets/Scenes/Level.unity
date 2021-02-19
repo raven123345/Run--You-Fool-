@@ -161,12 +161,12 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 28
+  m_FocalLength: 200
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -175,8 +175,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 46.397182
-  orthographic: 1
+  field of view: 6.8672605
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48973312}
   m_LocalRotation: {x: 0.26062098, y: 0.41843814, z: -0.1266925, w: 0.86077595}
-  m_LocalPosition: {x: -18.18, y: 14.1, z: -6.25}
+  m_LocalPosition: {x: -71.3, y: 59.14, z: -47.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820091332}
@@ -290,6 +290,9 @@ MonoBehaviour:
   - prefab: {fileID: 6130002029891999590, guid: 0d1f7aef57e2cb34aa48c3f869d335f6, type: 3}
     amount: 2
     expandable: 0
+  - prefab: {fileID: 5774666558040446800, guid: 85fa4b6a96b767d459e9d22e4e15b33c, type: 3}
+    amount: 2
+    expandable: 0
   pooledItems: []
 --- !u!4 &789355439
 Transform:
@@ -318,8 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054a86e0d8a6e304b891c70743683023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.1
-  ZScroll: 0.06
+  scrollSpeed: 0.2
 --- !u!1 &820091329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3853461531609898628, guid: 151c7bd63dd25b7489185a695567f509, type: 3}
@@ -345,7 +347,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &820091334
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -367,6 +369,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3853461530875696002, guid: 151c7bd63dd25b7489185a695567f509, type: 3}
+      propertyPath: rotAngle
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 3853461531609662180, guid: 151c7bd63dd25b7489185a695567f509, type: 3}
       propertyPath: m_RootOrder
       value: 2
