@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = this.gameObject;
+        GenerateWorld.RunDummy();
     }
 
     // Update is called once per frame
@@ -43,6 +44,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(transform.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GenerateWorld.RunDummy();
     }
 
     private void OnCollisionEnter(Collision other)

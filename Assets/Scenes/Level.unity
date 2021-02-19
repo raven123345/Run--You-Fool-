@@ -277,14 +277,11 @@ MonoBehaviour:
   items:
   - prefab: {fileID: 5786532443864754725, guid: b4543fb8158dc95449b51236693088ef, type: 3}
     amount: 2
-    expandable: 0
+    expandable: 1
   - prefab: {fileID: 9183666047413314331, guid: 9c773646a9067b84387359a2736df7cc, type: 3}
     amount: 2
     expandable: 0
   - prefab: {fileID: 2058660788469471417, guid: 8ed1eb6a3227f874dad40622699ee655, type: 3}
-    amount: 2
-    expandable: 0
-  - prefab: {fileID: 5774666558040446800, guid: 85fa4b6a96b767d459e9d22e4e15b33c, type: 3}
     amount: 2
     expandable: 0
   - prefab: {fileID: 8528791185393901151, guid: f0af25ffd47e56549bc872b92e57e52f, type: 3}
@@ -422,6 +419,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3853461531609898628, guid: 151c7bd63dd25b7489185a695567f509, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151c7bd63dd25b7489185a695567f509, type: 3}
 --- !u!1 &1205501419
@@ -546,7 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e675e73ab431e4194e68d2d4b3a688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iterations: 20
+  numPlatforms: 20
   forwardOffset: 10
   stairsOffset: 5
 --- !u!4 &1529199040
