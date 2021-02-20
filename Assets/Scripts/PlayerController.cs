@@ -8,26 +8,37 @@ public class PlayerController : MonoBehaviour
     float rotAngle = 45f;
     [SerializeField]
     float moveAmount = 1f;
+    [SerializeField]
+    float jumpForce = 100f;
 
     Animator anim;
     bool canTurn = false;
 
+    Rigidbody rb;
+
     public static GameObject player;
     public static GameObject currentPlatform;
+    public static bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         player = this.gameObject;
         GenerateWorld.RunDummy();
+        rb = GetComponent<Rigidbody>();
+        isDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+            return;
         if (Input.GetButtonDown("Jump"))
         {
             anim.SetBool("isJumping", true);
+            rb.AddForce(Vector3.up * jumpForce);
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -50,6 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(transform.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,11 +73,21 @@ public class PlayerController : MonoBehaviour
         {
             canTurn = true;
         }
+
+
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        currentPlatform = other.gameObject;
+
+
+        if (other.gameObject.CompareTag("Fire"))
+        {
+            anim.SetTrigger("isDead");
+            isDead = true;
+        }
+        else
+            currentPlatform = other.gameObject;
     }
     public void StopJumping()
     {

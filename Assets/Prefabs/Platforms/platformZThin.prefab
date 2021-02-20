@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03bb23023928df40a000dea50621a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deactivateAfter: 4
+  deactivateAfter: 3
 --- !u!1 &9183666047413314333
 GameObject:
   m_ObjectHideFlags: 0

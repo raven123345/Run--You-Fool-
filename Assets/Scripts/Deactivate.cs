@@ -10,7 +10,7 @@ public class Deactivate : MonoBehaviour
     bool deactivating = false;
     private void OnCollisionExit(Collision player)
     {
-        if(player.gameObject.CompareTag("Player") && !deactivating)
+        if(player.gameObject.CompareTag("Player") && !deactivating && !PlayerController.isDead)
         {
             Invoke("SetInactive", deactivateAfter);
             deactivating = true;
