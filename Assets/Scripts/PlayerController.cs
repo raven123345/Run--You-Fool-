@@ -10,11 +10,17 @@ public class PlayerController : MonoBehaviour
     float moveAmount = 1f;
     [SerializeField]
     float jumpForce = 100f;
+    [SerializeField]
+    float spellForce = 4000f;
 
     Animator anim;
     bool canTurn = false;
-
     Rigidbody rb;
+    Rigidbody magicRB;
+
+    public GameObject magic;
+    public Transform magicStartPos;
+
 
     public static GameObject player;
     public static GameObject currentPlatform;
@@ -24,10 +30,29 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        player = this.gameObject;
-        GenerateWorld.RunDummy();
         rb = GetComponent<Rigidbody>();
+        magicRB = magic.GetComponent<Rigidbody>();
+
+        player = this.gameObject;
+
+        GenerateWorld.RunDummy();
+
         isDead = false;
+    }
+
+    public void CastMagic()
+    {
+        if (isDead)
+            return;
+        magic.transform.position = magicStartPos.position;
+        magic.SetActive(true);
+        magicRB.AddForce(this.transform.forward * spellForce);
+        Invoke("KillMagic", 1f);
+    }
+
+    void KillMagic()
+    {
+        magic.SetActive(false);
     }
 
     // Update is called once per frame
@@ -73,15 +98,11 @@ public class PlayerController : MonoBehaviour
         {
             canTurn = true;
         }
-
-
     }
 
     private void OnCollisionEnter(Collision other)
     {
-
-
-        if (other.gameObject.CompareTag("Fire"))
+        if (other.gameObject.CompareTag("Fire") || other.gameObject.CompareTag("Wall"))
         {
             anim.SetTrigger("isDead");
             isDead = true;

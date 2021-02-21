@@ -1274,12 +1274,16 @@ PrefabInstance:
       value: 2.03
       objectReference: {fileID: 0}
     - target: {fileID: 8944081101056521787, guid: 6de8f5dab5c7494458de817ac856770b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.52141327
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944081101056521787, guid: 6de8f5dab5c7494458de817ac856770b, type: 3}
       propertyPath: m_Size.z
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8944081101056521787, guid: 6de8f5dab5c7494458de817ac856770b, type: 3}
       propertyPath: m_Center.y
-      value: 0.04
+      value: 0.23831472
       objectReference: {fileID: 0}
     - target: {fileID: 8944081101056521788, guid: 6de8f5dab5c7494458de817ac856770b, type: 3}
       propertyPath: m_RootOrder
