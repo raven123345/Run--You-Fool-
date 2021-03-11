@@ -6,36 +6,31 @@ public class Coin_Pickup : MonoBehaviour
 {
     [SerializeField]
     int points = 10;
-    MeshRenderer[] mrs;
+    MeshRenderer meshRenderer;
 
     private void Start()
     {
-        mrs = GetComponentsInChildren<MeshRenderer>();
+        meshRenderer = GetComponent<MeshRenderer>();
 
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            GameData.instance.UpdateScore(points);
-
-            foreach (MeshRenderer ms in mrs)
+            try
             {
-                ms.enabled = false;
+                GameData.instance.UpdateScore(points);
             }
+            catch { }
+            meshRenderer.enabled = false;
         }
     }
 
     private void OnEnable()
     {
-        if (mrs.Length == 0)
+        if (meshRenderer != null)
         {
-            mrs = GetComponentsInChildren<MeshRenderer>();
-        }
-
-        foreach (MeshRenderer ms in mrs)
-        {
-            ms.enabled = enabled;
+            meshRenderer.enabled = enabled;
         }
     }
 }

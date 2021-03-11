@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     float jumpForce = 100f;
     [SerializeField]
     float spellForce = 4000f;
+    [SerializeField]
+    float restartLevelAfter = 1f;
 
     Animator anim;
     bool canTurn = false;
@@ -98,6 +101,17 @@ public class PlayerController : MonoBehaviour
         {
             canTurn = true;
         }
+        if (other.gameObject.CompareTag("OffTheEdge"))
+        {
+            anim.SetTrigger("isDead");
+            isDead = true;
+            Invoke("RestartGame", restartLevelAfter);
+        }
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene("Level", LoadSceneMode.Single);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -106,6 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("isDead");
             isDead = true;
+            Invoke("RestartGame", restartLevelAfter);
         }
         else
             currentPlatform = other.gameObject;
