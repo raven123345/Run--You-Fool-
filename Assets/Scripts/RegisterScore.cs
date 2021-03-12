@@ -11,6 +11,7 @@ public class RegisterScore : MonoBehaviour
     void Start()
     {
         GameData.instance.scoreText = GetComponent<TextMeshProUGUI>();
+        GameData.instance.UpdateScore(0);
     }
 
 }

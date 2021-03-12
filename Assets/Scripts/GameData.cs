@@ -22,14 +22,20 @@ public class GameData : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         instance = this;
+
+        PlayerPrefs.SetInt("Score", 0);
     }
 
     public void UpdateScore(int s)
     {
         score += s;
+
         if(scoreText != null)
         {
             scoreText.text = "Score: " + score;
         }
+
+        PlayerPrefs.SetInt("Score", score);
+
     }
 }
