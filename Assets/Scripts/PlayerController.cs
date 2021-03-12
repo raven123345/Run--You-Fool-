@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public static GameObject player;
     public static GameObject currentPlatform;
     public static bool isDead = false;
+    bool gameOver = false;
 
     int livesLeft;
     public GameObject[] livesTextIcons;
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         GenerateWorld.RunDummy();
 
         isDead = false;
+        gameOver = false;
 
         livesLeft = PlayerPrefs.GetInt("Lives");
 
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
         {
-            if (isDead && Input.anyKeyDown)
+            if (gameOver && Input.anyKeyDown)
             {
                 SceneManager.LoadScene("Menu");
             }
@@ -114,10 +116,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(transform.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
         }
-
-
-    
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -143,7 +141,7 @@ public class PlayerController : MonoBehaviour
             gameOverPanel.SetActive(true);
 
         PlayerPrefs.SetInt("LastScore", PlayerPrefs.GetInt("Score"));
-        if(PlayerPrefs.HasKey("BestScore"))
+        if (PlayerPrefs.HasKey("BestScore"))
         {
             int bestScore = PlayerPrefs.GetInt("BestScore");
             if (bestScore < PlayerPrefs.GetInt("Score"))
@@ -151,7 +149,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetInt("BestScore", PlayerPrefs.GetInt("LastScore"));
             }
         }
-
+        gameOver = true;
     }
     void TakeLive()
     {

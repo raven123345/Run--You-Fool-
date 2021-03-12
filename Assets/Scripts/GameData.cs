@@ -11,6 +11,7 @@ public class GameData : MonoBehaviour
     public int score = 0;
 
     public TextMeshProUGUI scoreText = null;
+    public TextMeshProUGUI bestScore = null;
     private void Awake()
     {
         GameObject[] gd = GameObject.FindGameObjectsWithTag("GameData");
@@ -33,9 +34,13 @@ public class GameData : MonoBehaviour
     {
         score += s;
 
-        if(scoreText != null)
+        if (scoreText != null)
         {
             scoreText.text = "Score: " + score;
+        }
+        if (bestScore)
+        {
+            bestScore.text = "Best score: " + PlayerPrefs.GetInt("BestScore");
         }
 
         PlayerPrefs.SetInt("Score", score);
