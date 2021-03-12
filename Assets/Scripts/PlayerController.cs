@@ -142,6 +142,16 @@ public class PlayerController : MonoBehaviour
         if (gameOverPanel)
             gameOverPanel.SetActive(true);
 
+        PlayerPrefs.SetInt("LastScore", PlayerPrefs.GetInt("Score"));
+        if(PlayerPrefs.HasKey("BestScore"))
+        {
+            int bestScore = PlayerPrefs.GetInt("BestScore");
+            if (bestScore < PlayerPrefs.GetInt("Score"))
+            {
+                PlayerPrefs.SetInt("BestScore", PlayerPrefs.GetInt("LastScore"));
+            }
+        }
+
     }
     void TakeLive()
     {

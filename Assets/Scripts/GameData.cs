@@ -24,6 +24,9 @@ public class GameData : MonoBehaviour
         instance = this;
 
         PlayerPrefs.SetInt("Score", 0);
+
+        if (!PlayerPrefs.HasKey("BestScore"))
+            PlayerPrefs.SetInt("BestScore", 0);
     }
 
     public void UpdateScore(int s)
