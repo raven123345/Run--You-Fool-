@@ -1248,6 +1248,8 @@
         "m_GuidSerialized": "00c02d3a-c630-4449-8ab9-219e2b52b303"
     },
     "m_Name": "Speed",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_06bd689c98ec439c94bc18a121bdc521",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -1336,6 +1338,8 @@
         "m_GuidSerialized": "f8d1ca35-df07-4db2-9b9e-6e8d351b6137"
     },
     "m_Name": "GradPower",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_0d59a4abe37f44faaef913c5a434964e",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -2112,6 +2116,8 @@
         "m_GuidSerialized": "0c150cea-8a5c-4516-9c1c-0444ea31b1d6"
     },
     "m_Name": "PulsingMin",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_32739ca08d6a4b229c0ef9517206b472",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -5584,6 +5590,8 @@
         "m_GuidSerialized": "ee905d06-5147-415a-8b04-a12b668a0e0f"
     },
     "m_Name": "NoiseSize",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_9bb36312f6b74418a5cb7faaa622c852",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -5705,6 +5713,8 @@
         "m_GuidSerialized": "0a3bf1b0-d200-4499-a364-6dbc764fe769"
     },
     "m_Name": "FresnelPower",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_a04c27616fd6484db8da4a7fd5dac537",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -6174,6 +6184,8 @@
         "m_GuidSerialized": "b98aded3-b305-4146-aa90-3f559c804afe"
     },
     "m_Name": "DeformNoiseDir",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector2_ad6b70c0d7e2498f8d1be02787ff4874",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -6483,6 +6495,8 @@
         "m_GuidSerialized": "127c3f88-c031-4b68-b924-f69a47a5f784"
     },
     "m_Name": "MainTex",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_bc03e61e66cd4be8a44dd08904cecc89",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -6836,6 +6850,8 @@
         "m_GuidSerialized": "54dcf900-adc4-45ca-afcf-fbff057e45ec"
     },
     "m_Name": "DeformNoiseSize",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_ce5ec1eededd4034b1e37eeb920b63f4",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -6978,6 +6994,8 @@
         "m_GuidSerialized": "e2113738-f23c-4ccc-8642-c19bf549376d"
     },
     "m_Name": "PulsingSpeed",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_d428e1725df84b9da7774c0f0f919009",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -7125,6 +7143,8 @@
         "m_GuidSerialized": "a516929d-b2ad-45fc-8a7b-536b18a7ddb1"
     },
     "m_Name": "Emission Tex",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_dd13ce3394744cc4b4c156df7dd5cb6e",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -7534,6 +7554,8 @@
         "m_GuidSerialized": "e15a2fba-28c4-4289-8d60-70e7a4ba949a"
     },
     "m_Name": "Steps",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector2_e9bbdefa9fc9499190bf0f104c34b5d2",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -7611,6 +7633,8 @@
         "m_GuidSerialized": "317ae569-8e37-4a7a-8bf3-8d05a247456d"
     },
     "m_Name": "Color",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_ee00257ef9e043eebd6dac02199cd41a",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -7707,6 +7731,8 @@
         "m_GuidSerialized": "f4e46626-99c5-47db-b0a2-1488a4a459b8"
     },
     "m_Name": "DeformNoiseIntensity",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_f332f53081b24b70bd2970d52d4d6805",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -7793,6 +7819,8 @@
         "m_GuidSerialized": "2d3d7178-c957-4014-bfcd-d561c3d21329"
     },
     "m_Name": "Emission Color",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_f606b1669ee64da799a727c0a4fe221b",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
