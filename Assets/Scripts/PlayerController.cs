@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     float spellForce = 4000f;
     [SerializeField]
     float restartLevelAfter = 1f;
+    [SerializeField]
+    GameObject gameOverPanel;
 
     Animator anim;
     bool canTurn = false;
@@ -28,6 +31,10 @@ public class PlayerController : MonoBehaviour
     public static GameObject player;
     public static GameObject currentPlatform;
     public static bool isDead = false;
+    bool gameOver = false;
+
+    int livesLeft;
+    public GameObject[] livesTextIcons;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +48,20 @@ public class PlayerController : MonoBehaviour
         GenerateWorld.RunDummy();
 
         isDead = false;
+        gameOver = false;
+
+        livesLeft = PlayerPrefs.GetInt("Lives");
+
+        for (int i = 0; i < livesTextIcons.Length; i++)
+        {
+            if (i >= livesLeft)
+            {
+                livesTextIcons[i].SetActive(false);
+            }
+        }
+        if (gameOverPanel)
+            gameOverPanel.SetActive(false);
+
     }
 
     public void CastMagic()
@@ -62,7 +83,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (isDead)
+        {
+            if (gameOver && Input.anyKeyDown)
+            {
+                SceneManager.LoadScene("Menu");
+            }
             return;
+        }
         if (Input.GetButtonDown("Jump"))
         {
             anim.SetBool("isJumping", true);
@@ -89,7 +116,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(transform.right * moveAmount * Mathf.Sign(Input.GetAxisRaw("MoveHorizontal")), Space.World);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -105,13 +131,38 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("isDead");
             isDead = true;
+            TakeLive();
             Invoke("RestartGame", restartLevelAfter);
         }
+    }
+    void GameOver()
+    {
+        if (gameOverPanel)
+            gameOverPanel.SetActive(true);
+
+        PlayerPrefs.SetInt("LastScore", PlayerPrefs.GetInt("Score"));
+        if (PlayerPrefs.HasKey("BestScore"))
+        {
+            int bestScore = PlayerPrefs.GetInt("BestScore");
+            if (bestScore < PlayerPrefs.GetInt("Score"))
+            {
+                PlayerPrefs.SetInt("BestScore", PlayerPrefs.GetInt("LastScore"));
+            }
+        }
+        gameOver = true;
+    }
+    void TakeLive()
+    {
+        livesLeft--;
+        PlayerPrefs.SetInt("Lives", livesLeft);
     }
 
     void RestartGame()
     {
-        SceneManager.LoadScene("Level", LoadSceneMode.Single);
+        if (livesLeft >= 0)
+            SceneManager.LoadScene("Level", LoadSceneMode.Single);
+        else
+            GameOver();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -120,6 +171,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("isDead");
             isDead = true;
+            TakeLive();
             Invoke("RestartGame", restartLevelAfter);
         }
         else

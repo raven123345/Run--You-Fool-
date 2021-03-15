@@ -10,12 +10,16 @@ public class MainMenuController : MonoBehaviour
     GameObject helpPanel;
     [SerializeField]
     GameObject optionsPanel;
+
+    [SerializeField]
+    int maxLives = 3;
     private void Start()
     {
         //CloseHelp();
     }
     public void LoadGameScene()
     {
+        PlayerPrefs.SetInt("Lives", maxLives);
         SceneManager.LoadScene("Level", LoadSceneMode.Single);
     }
 
