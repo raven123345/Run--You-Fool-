@@ -1459,6 +1459,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1740007192699851413, guid: 71804c4664bd61e47b2014fa4ec2e0c0, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 8597265238456169030, guid: 49fbe14c12f72304784be54ee943bf7b, type: 3}
+    - target: {fileID: 1740007192699851413, guid: 71804c4664bd61e47b2014fa4ec2e0c0, type: 3}
       propertyPath: bricks.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1583,6 +1587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1740007192699851413, guid: 71804c4664bd61e47b2014fa4ec2e0c0, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 8597265238456169030, guid: 49fbe14c12f72304784be54ee943bf7b, type: 3}
     - target: {fileID: 1740007192699851413, guid: 71804c4664bd61e47b2014fa4ec2e0c0, type: 3}
       propertyPath: bricks.Array.size
       value: 3

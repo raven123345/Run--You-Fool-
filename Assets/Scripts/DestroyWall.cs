@@ -8,6 +8,9 @@ public class DestroyWall : MonoBehaviour
     GameObject[] bricks;
     [SerializeField]
     float crushForce = 500f;
+    [SerializeField]
+    GameObject explosion;
+
     List<Rigidbody> bricksRB = new List<Rigidbody>();
     Collider col;
 
@@ -45,6 +48,8 @@ public class DestroyWall : MonoBehaviour
         if (other.gameObject.CompareTag("Spell"))
         {
             col.enabled = false;
+
+           Instantiate(explosion, other.contacts[0].point, Quaternion.identity);
 
             foreach (Rigidbody rb in bricksRB)
             {

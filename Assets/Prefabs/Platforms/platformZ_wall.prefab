@@ -1170,6 +1170,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 179304102524450529, guid: e646ae843fb96b5498e4fd50d266ddce, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 8597265238456169030, guid: 49fbe14c12f72304784be54ee943bf7b, type: 3}
+    - target: {fileID: 179304102524450529, guid: e646ae843fb96b5498e4fd50d266ddce, type: 3}
       propertyPath: bricks.Array.size
       value: 15
       objectReference: {fileID: 0}
