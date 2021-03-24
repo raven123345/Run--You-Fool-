@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     int livesLeft;
     public GameObject[] livesTextIcons;
 
+    bool falling = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,11 +131,13 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("OffTheEdge"))
         {
-            anim.SetTrigger("isDead");
+            anim.SetTrigger("isFalling");
             isDead = true;
             TakeLive();
             Invoke("RestartGame", restartLevelAfter);
         }
+
+
     }
     void GameOver()
     {
