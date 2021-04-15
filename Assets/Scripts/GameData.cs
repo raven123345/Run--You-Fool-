@@ -12,8 +12,6 @@ public class GameData : MonoBehaviour
 
     public TextMeshProUGUI scoreText = null;
     public TextMeshProUGUI bestScore = null;
-
-    public GameObject MusicSlider;
     private void Awake()
     {
         GameObject[] gd = GameObject.FindGameObjectsWithTag("GameData");
@@ -30,8 +28,6 @@ public class GameData : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("BestScore"))
             PlayerPrefs.SetInt("BestScore", 0);
-
-        MusicSlider.GetComponent<UpdateMusic>().Start();
     }
 
     public void UpdateScore(int s)
